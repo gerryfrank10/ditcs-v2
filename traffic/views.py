@@ -48,3 +48,12 @@ class RoadViewSet(viewsets.ModelViewSet):
 class LightViewSet(viewsets.ModelViewSet):
     queryset = Light.objects.all()
     serializer_class = LightSerializer
+
+def maps(request):
+    return render(request, 'maps.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')

@@ -6,6 +6,7 @@ import io, base64
 from rest_framework import viewsets
 from .models import Traffic, Road, Light
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
+from .forms import CreatePersonForm
 
 # Create your views here.
 def index(request):
@@ -32,10 +33,14 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 def camera(request):
-    return render(request, 'camera.html')
+
+    context = {}
+    return render(request, 'camera.html',context)
 
 def profile(request):
-    return render(request, 'profile.html')
+
+    context = {}
+    return render(request, 'profile.html',context)
 
 class TrafficViewSet(viewsets.ModelViewSet):
     queryset = Traffic.objects.all()
@@ -50,10 +55,20 @@ class LightViewSet(viewsets.ModelViewSet):
     serializer_class = LightSerializer
 
 def maps(request):
-    return render(request, 'maps.html')
+    
+    context = {}
+    return render(request, 'maps.html', context)
 
 def login(request):
-    return render(request, 'login.html')
+    
+    context = {}
+    return render(request, 'login.html', context)
 
 def register(request):
-    return render(request, 'register.html')
+    form = CreatePersonForm()
+    if request.method == 'POST':
+        form = CreatePersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
+    return render(request, 'register.html', context)

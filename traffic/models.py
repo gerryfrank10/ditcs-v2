@@ -1,5 +1,17 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+
+class People(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=20, help_text="The Name of the person")
+    age = models.IntegerField(null=True, blank=True)
+    date_joined = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Light(models.Model):
     state_choice = (
@@ -9,6 +21,7 @@ class Light(models.Model):
 
     name = models.CharField(max_length=20, help_text="The light on the road")
     state = models.CharField(max_length=2, choices=state_choice)
+    date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -49,6 +62,7 @@ class Traffic(models.Model):
     road = models.ForeignKey('Road', on_delete=models.CASCADE)
     status = models.CharField(max_length=2, default='mp',)
     image = models.ImageField(upload_to='traffic', blank=True, null=True)
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.time} and {self.count}"

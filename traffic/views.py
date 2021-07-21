@@ -74,6 +74,7 @@ def roads(request):
     roads = Junction.objects.all()
     x = {'name': rd.name, 'state': rd.state}
     requests.post('http://127.0.0.1:8000/api', data=x)
+    print(x)
     context = {'data':roads}
     return render(request, 'roads.html',context)
 

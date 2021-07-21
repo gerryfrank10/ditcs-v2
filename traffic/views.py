@@ -73,7 +73,7 @@ def roads(request):
         rd.save()
     roads = Junction.objects.all()
     x = {'name': rd.name, 'state': rd.state}
-    requests.post('http://127.0.0.1:8000/api', data=data)
+    requests.post('http://127.0.0.1:8000/api', data=x)
     context = {'data':roads}
     return render(request, 'roads.html',context)
 

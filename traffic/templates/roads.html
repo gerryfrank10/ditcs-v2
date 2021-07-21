@@ -61,7 +61,7 @@
     <div>
 
     
-        <h3 class="text-dark mb-4">Junction One</h3>
+        <h3 class="text-dark mb-4">Road State</h3>
         <div class="row mb-3">
         {% for road in data %}
         <div class="col-lg-3">
@@ -69,7 +69,7 @@
                 <div class="col">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">{{ road.name }}..{{ road.state }}....</p>
+                            <p class="text-primary m-0 fw-bold">{{ road.name }}</p>
                         </div>
                         <div class="card-body">
                             <form action="" method="POST">
@@ -88,8 +88,11 @@
 
                                 <div class="onoffswitch">
                                     <input type="hidden" name="road_id" value="{{ road.id }}">
-                                    
-                                    <input type="checkbox" name="road_a" class="onoffswitch-checkbox" id="road{{ road.id }}" tabindex="0" >
+                                    {% ifequal road.state 'on' %}
+                                    <input type="checkbox" name="road_a" class="onoffswitch-checkbox" id="road{{ road.id }}" tabindex="0" checked>     
+                                    {% else %}
+                                    <input type="checkbox" name="road_a" class="onoffswitch-checkbox" id="road{{ road.id }}" tabindex="0">
+                                    {% endifequal %}
                                     <label class="onoffswitch-label" for="road{{ road.id }}">
                                         <span class="onoffswitch-inner"></span>
                                         <span class="onoffswitch-switch"></span>
@@ -115,133 +118,7 @@
         {% endfor %}
        
         </div>
-    </div>
-
-
-    <div>
-        <h3 class="text-dark mb-4">Junction Two</h3>
-        <div class="row mb-3">
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Road E</p>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="username"><strong>Total Vehicles</strong></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="mb-3"><label class="form-label" for="email"><strong>45</strong></label>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="road_e" class="onoffswitch-checkbox" id="roadE" tabindex="0" checked>
-                                        <label class="onoffswitch-label" for="roadE">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                        <br>
-                                    </div>
-                                
-                                   
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
-                                </form>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Road F</p>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="username"><strong>Total Vehicles</strong></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="mb-3"><label class="form-label" for="email"><strong>45</strong></label>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="road_f" class="onoffswitch-checkbox" id="roadf" tabindex="0" checked>
-                                        <label class="onoffswitch-label" for="roadf">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                        <br>
-                                    </div>
-                                
-                                   
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
-                                </form>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Road G</p>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="roadc"><strong>Total Vehicles</strong></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="mb-3"><label class="form-label" for="roadc"><strong>45</strong></label>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="road_g" class="onoffswitch-checkbox" id="roadG" tabindex="0" checked>
-                                        <label class="onoffswitch-label" for="roadG">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                        <br>
-                                    </div>
-                                
-                                   
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
-                                </form>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-          
-        </div>
-    </div>
-   
+    </div>   
 </div>
 
 {% endblock %}

@@ -7,7 +7,7 @@ from rest_framework import viewsets
 from .models import Junction, Traffic, Road, Light,Junction
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
 from .forms import CreatePersonForm, RoadsForm
-
+import requests
 
 # Create your views here.
 def index(request):
@@ -70,9 +70,10 @@ def roads(request):
         rd = Junction.objects.get(pk=int(rId))
         rd.name = sname
         rd.state = result[0]
-
         rd.save()
     roads = Junction.objects.all()
+    x = {'name': rd.name, 'state': rd.state}
+    requests.post('http://127.0.0.1:8000/api', data=data)
     context = {'data':roads}
     return render(request, 'roads.html',context)
 

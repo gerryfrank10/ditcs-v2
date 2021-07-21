@@ -26,6 +26,19 @@ class Light(models.Model):
     def __str__(self):
         return self.name
 
+class Junction(models.Model):
+    light_state = (
+        ('on', 'on'),
+        ('off', 'off'),
+    )
+
+    name = models.CharField(max_length=20, help_text="Name of the road")
+    state = models.CharField(max_length=3, choices=light_state)
+    date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
 class Road(models.Model):
     direction_choice = (
         ('R', 'Right to left'),

@@ -14,10 +14,12 @@ router.register(r'light', views.LightViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('camera/', views.camera, name='camera'),
+    path('roads/', views.roads, name='roads'),
     path('profile/', views.profile, name='profile'),
     path('maps/', views.maps, name='maps'),
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
+    path('forgot-password/', views.forgot_password, name='forgot_password'),
     path('api/', include(router.urls)),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/refresh/', TokenRefreshView, name='token_refresh'),

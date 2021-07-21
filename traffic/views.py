@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from rest_framework import viewsets
 import io, base64
 from rest_framework import viewsets
-from .models import Traffic, Road, Light
+from .models import Junction, Traffic, Road, Light,Junction
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
-from .forms import CreatePersonForm
+from .forms import CreatePersonForm, RoadsForm
+
 
 # Create your views here.
 def index(request):
@@ -37,6 +38,44 @@ def camera(request):
     context = {}
     return render(request, 'camera.html',context)
 
+def roads(request):
+    result = []
+    # form = RoadsForm()
+   
+    
+    if request.method == 'POST':    
+        state= request.POST
+        if 'road_a' in state:
+            result.append(request.POST['road_a'])
+            print(f'{result} ')
+        else:
+             result.append('off')
+        
+        if (request.POST['road_id'] == '1'):
+            sname= 'Road A'
+        elif(request.POST['road_id'] == '2'): 
+            sname= 'Road B'
+        elif(request.POST['road_id'] == '3'): 
+            sname= 'Road C' 
+        elif(request.POST['road_id'] == '4'): 
+            sname= 'Road D'         
+        elif(request.POST['road_id'] == '5'): 
+            sname= 'Road E' 
+        elif(request.POST['road_id'] == '6'): 
+            sname= 'Road F' 
+        elif(request.POST['road_id'] == '7'): 
+            sname= 'Road G' 
+            
+        rId=request.POST['road_id']
+        rd = Junction.objects.get(pk=int(rId))
+        rd.name = sname
+        rd.state = result[0]
+
+        rd.save()
+    roads = Junction.objects.all()
+    context = {'data':roads}
+    return render(request, 'roads.html',context)
+
 def profile(request):
 
     context = {}
@@ -63,6 +102,11 @@ def login(request):
     
     context = {}
     return render(request, 'login.html', context)
+
+def forgot_password(request):
+    
+    context = {}
+    return render(request, 'forgot-password.html', context)
 
 def register(request):
     form = CreatePersonForm()

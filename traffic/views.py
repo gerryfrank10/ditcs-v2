@@ -9,6 +9,17 @@ from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
 from .forms import CreatePersonForm, RoadsForm
 import requests
 
+import datetime
+
+import csv
+import xlwt
+from django.template.loader import render_to_string
+
+import tempfile
+#from weasyprint import HTML
+
+
+
 # Create your views here.
 def index(request):
 
@@ -50,33 +61,61 @@ def roads(request):
             print(f'{result} ')
         else:
              result.append('off')
-        
-        if (request.POST['road_id'] == '1'):
-            sname= 'Road A'
-        elif(request.POST['road_id'] == '2'): 
-            sname= 'Road B'
-        elif(request.POST['road_id'] == '3'): 
-            sname= 'Road C' 
-        elif(request.POST['road_id'] == '4'): 
-            sname= 'Road D'         
-        elif(request.POST['road_id'] == '5'): 
-            sname= 'Road E' 
-        elif(request.POST['road_id'] == '6'): 
-            sname= 'Road F' 
-        elif(request.POST['road_id'] == '7'): 
-            sname= 'Road G' 
             
         rId=request.POST['road_id']
         rd = Junction.objects.get(pk=int(rId))
-        rd.name = sname
         rd.state = result[0]
         rd.save()
     roads = Junction.objects.all()
-    x = {'name': rd.name, 'state': rd.state}
-    requests.post('http://127.0.0.1:8000/api', data=x)
-    print(x)
+    # x = {'name': rd.name, 'state': rd.state}
+    # requests.post('http://127.0.0.1:8000/api', data=x)
+    # print(x)
     context = {'data':roads}
     return render(request, 'roads.html',context)
+
+def road_export_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=ditcs' +\
+        str(datetime.datetime.now())+'.csv'
+
+    writer = csv.writer(response)
+    writer.writerow(['Name','state','Date'])
+
+    roads = Junction.objects.all()
+
+    for road in roads:
+        writer.writerow([road.name,road.state, road.date])
+    
+    return response
+
+def road_export_excel(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename=ditcss' +\
+        str(datetime.datetime.now())+'.xls'
+    
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Roads')
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    colums = ['Name','state','Date']
+
+    for col_num in range(len(colums)):
+        ws.write(row_num, col_num, colums[col_num], font_style)
+    
+    font_style = xlwt.XFStyle()
+
+    rows = Junction.objects.all().values_list('name', 'state', 'date')
+
+    for row in rows:
+        row_num += 1
+
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, str(row[col_num]), font_style)
+        wb.save(response)
+
+        return response
 
 def profile(request):
 

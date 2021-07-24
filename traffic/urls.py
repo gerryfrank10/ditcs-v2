@@ -23,4 +23,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/refresh/', TokenRefreshView, name='token_refresh'),
+    path('road-export-csv/', views.road_export_csv, name='road_export_csv'),
+    path('road-export-excel/', views.road_export_excel, name='road_export_excel'),
 ]

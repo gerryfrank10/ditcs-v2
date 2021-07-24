@@ -34,6 +34,7 @@ class Junction(models.Model):
 
     name = models.CharField(max_length=20, help_text="Name of the road")
     state = models.CharField(max_length=3, choices=light_state)
+    traffic_queue = models.IntegerField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):

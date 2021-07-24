@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Traffic, Light, Road, Junction
+from .models import  Traffic, Light, Road, Junction
 #from .reports import MyReport
 
 @admin.register(Traffic)
@@ -15,12 +15,15 @@ class LightAdmin(admin.ModelAdmin):
 
 @admin.register(Road)
 class RoadAdmin(admin.ModelAdmin):
-    list_display = ('name', 'distance', 'status')
-    list_filter = ('distance','status')
+    list_display = ('name', 'direction', 'junction','state')
+    list_filter = ('junction','state')
 
 @admin.register(Junction)
 class JunctionAdmin(admin.ModelAdmin):
-    list_display = ('name','state')
+    list_display = ('name','date')
+    list_filter = ('name',)
+
+
 
 
 #reports.register(Road, MyReport)

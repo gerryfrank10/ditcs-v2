@@ -62,16 +62,16 @@
         <a href="{% url 'road_export_csv' %}" class="btn btn-primary">Export Csv</a>
         <a href="{% url 'road_export_excel' %}" class="btn btn-primary">Export Excel</a>
         <a href="#" class="btn btn-primary">Export Pdf</a>
-    
-        <h3 class="text-dark mb-4">Road State</h3>
+        {% for junction in data %}
+        <h3 class="text-dark mb-4">{{ junction.name }}</h3>
         <div class="row mb-3">
-        {% for road in data %}
+            {% for road in junction.road_set.all %}
         <div class="col-lg-3">
             <div class="row">
                 <div class="col">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">{{ road.name }}</p>
+                            <p class="text-primary m-0 fw-bold">{{ road.name }} {{road.direction}}</p>
                         </div>
                         <div class="card-body">
                             <form action="" method="POST">
@@ -116,10 +116,11 @@
                 </div>
             </div>
         </div>
-           
         {% endfor %}
        
+       
         </div>
+        {% endfor %}
     </div>   
 </div>
 

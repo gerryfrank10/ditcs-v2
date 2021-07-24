@@ -4,16 +4,18 @@ import matplotlib.pyplot as plt
 from rest_framework import viewsets
 import io, base64
 from rest_framework import viewsets
-from .models import Junction, Traffic, Road, Light,Junction
+from .models import  Traffic, Road, Light,Junction
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
-from .forms import CreatePersonForm, RoadsForm
+from .forms import CreatePersonForm
 import requests
+from django.views.generic import TemplateView
 
 import datetime
 
 import csv
 import xlwt
 from django.template.loader import render_to_string
+
 
 import tempfile
 #from weasyprint import HTML
@@ -49,11 +51,10 @@ def camera(request):
     context = {}
     return render(request, 'camera.html',context)
 
+
+
 def roads(request):
     result = []
-    # form = RoadsForm()
-   
-    
     if request.method == 'POST':    
         state= request.POST
         if 'road_a' in state:
@@ -63,14 +64,14 @@ def roads(request):
              result.append('off')
             
         rId=request.POST['road_id']
-        rd = Junction.objects.get(pk=int(rId))
+        rd = Road.objects.get(pk=int(rId))
         rd.state = result[0]
         rd.save()
-    roads = Junction.objects.all()
+    junctions = Junction.objects.all()
     # x = {'name': rd.name, 'state': rd.state}
     # requests.post('http://127.0.0.1:8000/api', data=x)
     # print(x)
-    context = {'data':roads}
+    context = {'data':junctions}
     return render(request, 'roads.html',context)
 
 def road_export_csv(request):
@@ -81,7 +82,7 @@ def road_export_csv(request):
     writer = csv.writer(response)
     writer.writerow(['Name','state','Date'])
 
-    roads = Junction.objects.all()
+    roads = Road.objects.all()
 
     for road in roads:
         writer.writerow([road.name,road.state, road.date])
@@ -106,7 +107,7 @@ def road_export_excel(request):
     
     font_style = xlwt.XFStyle()
 
-    rows = Junction.objects.all().values_list('name', 'state', 'date')
+    rows = Road.objects.all().values_list('name', 'state', 'date')
 
     for row in rows:
         row_num += 1
@@ -121,6 +122,14 @@ def profile(request):
 
     context = {}
     return render(request, 'profile.html',context)
+
+class ChartView(TemplateView):
+    template_name = 'chart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data'] = Road.objects.all()
+        return context
 
 class TrafficViewSet(viewsets.ModelViewSet):
     queryset = Traffic.objects.all()

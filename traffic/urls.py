@@ -5,6 +5,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from traffic.views import ChartView
 
 router = routers.DefaultRouter()
 router.register(r'traffic', views.TrafficViewSet)
@@ -17,6 +18,7 @@ urlpatterns = [
     path('roads/', views.roads, name='roads'),
     path('profile/', views.profile, name='profile'),
     path('maps/', views.maps, name='maps'),
+    path('chart/', ChartView.as_view(), name='maps'),
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('forgot-password/', views.forgot_password, name='forgot_password'),

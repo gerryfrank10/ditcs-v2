@@ -27,18 +27,12 @@ class Light(models.Model):
         return self.name
 
 class Junction(models.Model):
-    light_state = (
-        ('on', 'on'),
-        ('off', 'off'),
-    )
-
-    name = models.CharField(max_length=20, help_text="Name of the road")
-    state = models.CharField(max_length=3, choices=light_state)
-    traffic_queue = models.IntegerField(null=True, blank=True)
+    name = models.CharField(max_length=20, help_text="Name of the Junction Exchange")
     date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
+
 
 class Road(models.Model):
     direction_choice = (
@@ -52,10 +46,16 @@ class Road(models.Model):
         ('M', 'Maintenance'),
         ('R', 'Restricted'),
     )
+    light_state = (
+        ('on', 'on'),
+        ('off', 'off'),
+    )
     name = models.CharField(max_length=20, help_text="The road name")
     distance = models.FloatField(help_text="The distance of the road")
-    light = models.ForeignKey('Light', null=True, blank=True, on_delete=models.SET_NULL)
     direction = models.CharField(max_length=2, help_text="The direction of the road",choices=direction_choice)
+    state = models.CharField(max_length=3,null=True, blank=True, choices=light_state)
+    traffic_queue = models.IntegerField(null=True, blank=True)
+    junction = models.ForeignKey('Junction',null=True, blank=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=2, blank=True, null=True, help_text="Road status availability", default='A')
 
     def __str__(self):

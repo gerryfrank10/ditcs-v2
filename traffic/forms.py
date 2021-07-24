@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from .models import Junction
+from .models import Road
 
 class CreatePersonForm(UserCreationForm):
     class Meta:
@@ -10,5 +10,5 @@ class CreatePersonForm(UserCreationForm):
 
 class RoadsForm(ModelForm):
     class Meta:
-        model = Junction
+        model = Road
         fields = ['state',]

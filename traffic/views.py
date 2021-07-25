@@ -67,7 +67,7 @@ def roads(request):
              result.append('off')
         rId=request.POST['road_id']
         rd = Road.objects.get(pk=int(rId))
-        road_rd = Road.objects.filter(junction_id = rd)
+        road_rd = Road.objects.filter(junction_id = rId)
         print(f'road_rd')
         rd.state = result[0]
         rd.save()

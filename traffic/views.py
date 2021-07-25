@@ -9,12 +9,14 @@ from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
 from .forms import CreatePersonForm
 import requests
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+
+from django.contrib import auth
 
 import datetime
 
 import csv
 import xlwt
-from django.template.loader import render_to_string
 
 
 import tempfile
@@ -23,6 +25,7 @@ import tempfile
 
 
 # Create your views here.
+@login_required(login_url="/admin/login/")
 def index(request):
 
     # Draw a figure for tests
@@ -46,13 +49,14 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+@login_required(login_url="/admin/login/")
 def camera(request):
 
     context = {}
     return render(request, 'camera.html',context)
 
 
-
+@login_required(login_url="/admin/login/")
 def roads(request):
     result = []
     if request.method == 'POST':    
@@ -74,6 +78,7 @@ def roads(request):
     context = {'data':junctions}
     return render(request, 'roads.html',context)
 
+@login_required(login_url="/admin/login/")
 def road_export_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=ditcs' +\
@@ -89,6 +94,7 @@ def road_export_csv(request):
     
     return response
 
+@login_required(login_url="/admin/login/")
 def road_export_excel(request):
     response = HttpResponse(content_type='application/ms-excel')
     response['Content-Disposition'] = 'attachment; filename=ditcss' +\
@@ -118,6 +124,7 @@ def road_export_excel(request):
 
         return response
 
+@login_required(login_url="/admin/login/")
 def profile(request):
 
     context = {}
@@ -131,6 +138,7 @@ class ChartView(TemplateView):
         context['data'] = Road.objects.all()
         return context
 
+
 class TrafficViewSet(viewsets.ModelViewSet):
     queryset = Traffic.objects.all()
     serializer_class = TrafficSerializer
@@ -143,6 +151,7 @@ class LightViewSet(viewsets.ModelViewSet):
     queryset = Light.objects.all()
     serializer_class = LightSerializer
 
+@login_required(login_url="/admin/login/")
 def maps(request):
     
     context = {}

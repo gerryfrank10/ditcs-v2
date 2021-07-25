@@ -65,10 +65,13 @@ def roads(request):
 
         else:
              result.append('off')
-        rId=request.POST['road_id']
-        rd = Road.objects.get(pk=int(rId))
-        road_rd = Road.objects.filter(junction_id = rId)
-        print(f'road_rd')
+        rId=int(request.POST['road_id'])
+        rd = Road.objects.get(pk=rId)
+
+        road_rd = Road.objects.filter(junction_id = rd.junction.id)
+        road_id = [r.id for r in road_rd if r.state == 'on']
+        road_state = [r.state for r in road_rd if r.state == 'on']
+        print(f'{road_id} {road_state}')
         rd.state = result[0]
         rd.save()
     junctions = Junction.objects.all()

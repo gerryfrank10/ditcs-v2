@@ -10,18 +10,17 @@ from .forms import CreatePersonForm
 import requests
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-
 from django.contrib import auth
 
+
 import datetime
-
 import csv
-
-
 import tempfile
+import serial
 #from weasyprint import HTML
 
 
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 # Create your views here.
 @login_required(login_url="/admin/login/")
@@ -62,12 +61,14 @@ def roads(request):
         state= request.POST
         if 'road_a' in state:
             result.append(request.POST['road_a'])
-            print(f'{result} ')
+            # print(f'{result} ')
+
         else:
              result.append('off')
-            
         rId=request.POST['road_id']
         rd = Road.objects.get(pk=int(rId))
+        road_rd = Road.objects.filter(junction_id = rd)
+        print(f'road_rd')
         rd.state = result[0]
         rd.save()
     junctions = Junction.objects.all()

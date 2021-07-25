@@ -57,6 +57,7 @@ class Road(models.Model):
     traffic_queue = models.IntegerField(null=True, blank=True)
     junction = models.ForeignKey('Junction',null=True, blank=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=2, blank=True, null=True, help_text="Road status availability", default='A')
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}, {self.distance} km"
@@ -71,7 +72,7 @@ class Traffic(models.Model):
         ('mp', 'Medium Populoated'),
     )
 
-    time = models.DateTimeField(auto_now_add=True,)
+    time = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     count = models.IntegerField(help_text="The total number of cars on the road")
     road = models.ForeignKey('Road', on_delete=models.CASCADE)
     status = models.CharField(max_length=2, default='mp',)

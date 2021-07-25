@@ -16,7 +16,6 @@ from django.contrib import auth
 import datetime
 
 import csv
-import xlwt
 
 
 import tempfile

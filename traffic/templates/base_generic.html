@@ -25,13 +25,18 @@
                 <hr class="sidebar-divider my-0">
                 {% with request.resolver_match.url_name as url_name %}
                 <ul class="navbar-nav text-light" id="accordionSidebar">
+                    {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link {% if url_name == 'index' %}active{% endif %}" href="{% url 'index' %}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}"><i class="fas fa-user"></i><span>Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link {% if url_name == 'camera' %}active{% endif %}" href="{% url 'camera' %}"><i class="fas fa-table"></i><span>View Cameras </span></a></li>
                     <li class="nav-item"><a class="nav-link {% if url_name == 'roads' %}active{% endif %}" href="{% url 'roads' %}"><i class="fas fa-table"></i><span>Roads</span></a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'admin:logout' %}active{% endif %}" href="{% url 'admin:logout' %}"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
+                   
+                    {% else %}
                     <li class="nav-item"><a class="nav-link {% if url_name == 'login' %}active{% endif %}" href="{% url 'login' %}"><i class="far fa-user-circle"></i><span>Login</span></a></li>
                     <li class="nav-item"><a class="nav-link {% if url_name == 'register' %}active{% endif %}" href="{% url 'register' %}"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
                     <li class="nav-item"><a class="nav-link {% if url_name == 'forgot_password' %}active{% endif %}" href="{%url 'forgot_password' %}"><i class="fas fa-key"></i><span>Forgotten Password</span></a></li>
+                    {% endif %}
                 </ul>
                 {% endwith %}
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -58,11 +63,19 @@
                            
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">User Admin</span><img class="border rounded-circle img-profile" src="{% static 'img/avatars/avatar1.jpeg' %}"></a>
+                                {% if user.is_authenticated %}
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                                    
+                                    <span class="d-none d-lg-inline me-2 text-gray-600 small">{{user.first_name}} {{user.last_name}}</span>
+                                    
+                                    <img class="border rounded-circle img-profile" src="{% static 'img/avatars/avatar1.jpeg' %}"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="{% url 'admin:logout' %}"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
+
                                 </div>
+
+                                {% endif %}
                             </li>
                         </ul>
                     </div>

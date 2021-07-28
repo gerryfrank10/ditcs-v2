@@ -13,12 +13,12 @@ router.register(r'road', views.RoadViewSet)
 router.register(r'light', views.LightViewSet)
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', ChartView.as_view(), name='index'),
     path('camera/', views.camera, name='camera'),
     path('roads/', views.roads, name='roads'),
     path('profile/', views.profile, name='profile'),
     path('maps/', views.maps, name='maps'),
-    path('chart/', ChartView.as_view(), name='chart'),
+    
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('forgot-password/', views.forgot_password, name='forgot_password'),

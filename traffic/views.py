@@ -20,7 +20,7 @@ import serial
 #from weasyprint import HTML
 
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial()
 
 # Create your views here.
 @login_required(login_url="/admin/login/")
@@ -57,6 +57,7 @@ def camera(request):
 @login_required(login_url="/admin/login/")
 def roads(request):
     result = []
+    my_road = []
     if request.method == 'POST':    
         state= request.POST
         if 'road_a' in state:
@@ -71,7 +72,12 @@ def roads(request):
         road_rd = Road.objects.filter(junction_id = rd.junction.id)
         road_id = [r.id for r in road_rd if r.state == 'on']
         road_state = [r.state for r in road_rd if r.state == 'on']
-        print(f'{road_id} {road_state}')
+        print(f'{type(road_id)} {road_state}')
+
+        for my_r in road_id:
+            ser.write(str(my_r).encode())
+        # print(my_road[0])
+        # ser.write(str(my_road[0]).encode())
         rd.state = result[0]
         rd.save()
     junctions = Junction.objects.all()
@@ -134,7 +140,7 @@ def profile(request):
     return render(request, 'profile.html',context)
 
 class ChartView(TemplateView):
-    template_name = 'chart.html'
+    template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

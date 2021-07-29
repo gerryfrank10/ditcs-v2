@@ -18,8 +18,9 @@ urlpatterns = [
     path('roads/', views.roads, name='roads'),
     path('profile/', views.profile, name='profile'),
     path('maps/', views.maps, name='maps'),
-    
-    path('login/', views.login, name='login'),
+
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutPage, name='logout'),
     path('register/', views.register, name='register'),
     path('forgot-password/', views.forgot_password, name='forgot_password'),
     path('api/', include(router.urls)),

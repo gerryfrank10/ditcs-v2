@@ -10,9 +10,9 @@ from .forms import CreatePersonForm
 import requests
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from django.contrib import auth
-
-
+from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
+from django.shortcuts import redirect
 import datetime
 import csv
 import tempfile
@@ -23,7 +23,7 @@ import serial
 ser = serial.Serial()
 
 # Create your views here.
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def index(request):
 
     # Draw a figure for tests
@@ -47,14 +47,14 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def camera(request):
 
     context = {}
     return render(request, 'camera.html',context)
 
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def roads(request):
     result = []
     my_road = []
@@ -87,7 +87,7 @@ def roads(request):
     context = {'data':junctions}
     return render(request, 'roads.html',context)
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def road_export_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=ditcs' +\
@@ -103,7 +103,7 @@ def road_export_csv(request):
     
     return response
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def road_export_excel(request):
     response = HttpResponse(content_type='application/ms-excel')
     response['Content-Disposition'] = 'attachment; filename=ditcss' +\
@@ -133,7 +133,7 @@ def road_export_excel(request):
 
         return response
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def profile(request):
 
     context = {}
@@ -160,16 +160,29 @@ class LightViewSet(viewsets.ModelViewSet):
     queryset = Light.objects.all()
     serializer_class = LightSerializer
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url="login")
 def maps(request):
     
     context = {}
     return render(request, 'maps.html', context)
 
-def login(request):
-    
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password,)
+
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request,'Invalid username or password')
     context = {}
-    return render(request, 'login.html', context)
+    return render(request, 'accounts/login.html', context)
+
+def logoutPage(request):
+    logout(request)
+    return redirect('login')
 
 def forgot_password(request):
     
@@ -183,4 +196,4 @@ def register(request):
         if form.is_valid():
             form.save()
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'accounts/register.html', context)

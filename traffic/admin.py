@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Traffic, Light, Road, Junction
+from .models import  Traffic, Light, Road, Junction, People
 #from .reports import MyReport
 
 @admin.register(Traffic)
@@ -23,7 +23,10 @@ class JunctionAdmin(admin.ModelAdmin):
     list_display = ('name','date')
     list_filter = ('name',)
 
-
+@admin.register(People)
+class PeopleAdmin(admin.ModelAdmin):
+    list_display = ('name', 'age', 'user')
+    list_filter = ('age',)
 
 
 #reports.register(Road, MyReport)

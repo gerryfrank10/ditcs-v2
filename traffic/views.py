@@ -20,7 +20,8 @@ import serial
 #from weasyprint import HTML
 
 
-ser = serial.Serial()
+ser = serial.Serial('/dev/ttyUSB0', 9600)
+print("Hello world!")
 
 # Create your views here.
 @login_required(login_url="login")
@@ -76,8 +77,8 @@ def roads(request):
 
         for my_r in road_id:
             ser.write(str(my_r).encode())
-        # print(my_road[0])
-        # ser.write(str(my_road[0]).encode())
+        print(my_road[0])
+        ser.write(str(my_road[0]).encode())
         rd.state = result[0]
         rd.save()
     junctions = Junction.objects.all()

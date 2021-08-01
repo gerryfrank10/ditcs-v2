@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 import matplotlib.pyplot as plt
 from rest_framework import viewsets
@@ -6,7 +6,7 @@ import io, base64
 from rest_framework import viewsets
 from .models import  Traffic, Road, Light,Junction
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
-from .forms import CreatePersonForm
+from .forms import CreatePersonForm, LightsForm
 import requests
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
@@ -20,8 +20,8 @@ import serial
 #from weasyprint import HTML
 
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
-print("Hello world!")
+# ser = serial.Serial('/dev/ttyUSB0', 9600)
+
 
 # Create your views here.
 @login_required(login_url="login")
@@ -75,10 +75,10 @@ def roads(request):
         road_state = [r.state for r in road_rd if r.state == 'on']
         print(f'{type(road_id)} {road_state}')
 
-        for my_r in road_id:
-            ser.write(str(my_r).encode())
-        print(my_road[0])
-        ser.write(str(my_road[0]).encode())
+        # for my_r in road_id:
+        #     ser.write(str(my_r).encode())
+        # print(my_road[0])
+        # ser.write(str(my_road[0]).encode())
         rd.state = result[0]
         rd.save()
     junctions = Junction.objects.all()
@@ -87,6 +87,32 @@ def roads(request):
     # print(x)
     context = {'data':junctions}
     return render(request, 'roads.html',context)
+
+@login_required(login_url="login")
+def roadGerald(request):
+    lights = Light.objects.all()
+    form = LightsForm()
+    if request.method == 'POST':
+        form = LightsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form': form,'lights': lights}
+    return render(request, 'road-Gerald.html', context)
+
+@login_required(login_url="login")
+def updateLight(request, pk):
+    light = get_object_or_404(Light, pk=pk)
+    form = LightsForm(instance=light)
+    if request.method == 'POST':
+        form = LightsForm(request.POST, instance=light)
+        if form.is_valid():
+            print(f"{light},{request.POST['state']},")
+            form.save()
+            return redirect('roadGerald')
+    context = {'light':light, 'form':form}
+    return render(request, 'update-Road.html', context)
+
 
 @login_required(login_url="login")
 def road_export_csv(request):

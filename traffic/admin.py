@@ -9,14 +9,14 @@ class TrafficAdmin(admin.ModelAdmin):
 
 @admin.register(Light)
 class LightAdmin(admin.ModelAdmin):
-    list_display = ('name', 'state')
-    list_filter = ('state', )
+    list_display = ('name', 'state', 'road')
+    list_filter = ('state','road' )
 
 
 @admin.register(Road)
 class RoadAdmin(admin.ModelAdmin):
-    list_display = ('name', 'direction', 'junction','state')
-    list_filter = ('junction','state')
+    list_display = ('name', 'direction', 'junction',)
+    list_filter = ('junction',)
 
 @admin.register(Junction)
 class JunctionAdmin(admin.ModelAdmin):

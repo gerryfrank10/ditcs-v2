@@ -16,9 +16,10 @@ urlpatterns = [
     path('', ChartView.as_view(), name='index'),
     path('camera/', views.camera, name='camera'),
     path('roads/', views.roads, name='roads'),
+    path('roadGerald/', views.roadGerald, name='roadGerald'),
     path('profile/', views.profile, name='profile'),
     path('maps/', views.maps, name='maps'),
-
+    path('updateLight/<str:pk>', views.updateLight, name='updateLight'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutPage, name='logout'),
     path('register/', views.register, name='register'),

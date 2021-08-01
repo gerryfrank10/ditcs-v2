@@ -1,6 +1,8 @@
 languages: python
 python:
  - "3.9"
+env:
+ - DJANGO_SETTINGS_MODULE=DITCS.settings
 install:
  - pip install -r requirements.txt
 scripts: pytest

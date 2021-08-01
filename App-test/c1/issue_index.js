@@ -1,0 +1,14 @@
+var issue = [
+  { 'severity': 3, 'type': 40402, 'sid': '22004', 'extra': 'Python error', 'fetched': true, 'code': 400, 'len': 74579, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': '[none]', 'dir': 'i0' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://use.fontawesome.com/releases/v5.12.0/css/all.css', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i1' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i2' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i3' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i4' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i5' },
+  { 'severity': 3, 'type': 40201, 'sid': '0', 'extra': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i6' },
+  { 'severity': 0, 'type': 10601, 'sid': '0', 'extra': '', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': 'application/xhtml+xml', 'cset': 'utf-8', 'dir': 'i7' },
+  { 'severity': 0, 'type': 10205, 'sid': '0', 'extra': '', 'fetched': true, 'code': 404, 'len': 5142, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': '[none]', 'dir': 'i8' },
+  { 'severity': 0, 'type': 10204, 'sid': '0', 'extra': 'X-Frame-Options', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'dir': 'i9' },
+  { 'severity': 0, 'type': 10204, 'sid': '0', 'extra': 'X-Content-Type-Options', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'dir': 'i10' },
+  { 'severity': 0, 'type': 10202, 'sid': '0', 'extra': 'WSGIServer/0.2 CPython/3.9.2', 'fetched': true, 'code': 200, 'len': 19192, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'dir': 'i11' }
+];

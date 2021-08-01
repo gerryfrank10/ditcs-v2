@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:14:31 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 132
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+{"traffic":"http://127.0.0.1:8000/api/traffic/","road":"http://127.0.0.1:8000/api/road/","light":"http://127.0.0.1:8000/api/light/"}

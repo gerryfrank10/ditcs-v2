@@ -1,0 +1,10 @@
+GET /home/kento/ HTTP/1.1
+Host: 127.0.0.1:8000
+Accept-Encoding: gzip
+Connection: keep-alive
+User-Agent: Mozilla/5.0 SF/2.10b
+Range: bytes=0-399999
+Referer: http://127.0.0.1/
+Host: -->">'>'"<sfi000018v391919>
+Cookie: csrftoken=lplPnWsc7tztB16g56ha2s5g7oe1BGOtgfGmJqOmj8lzMmBVdIsZhMpgWtUpI2ye; messages=.eJyLjlaKj88qzs-Lz00tLk5MT1XSMdAxMtBR8swrS8zJTFEoLU4tykvMTVXIL1IoSCwuLs8vSlGK1RkK2mIBOKpM8Q:1mAD5J:fVv_68P5viMkhcBY4HoLynQGPgOiL2-ajpK3KxCj5M0
+

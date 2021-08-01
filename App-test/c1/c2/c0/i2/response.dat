@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:30:59 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 589
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+[{"id":9,"name":"light1","state":"A","date":"2021-07-31T10:29:09.483563Z","road":4},{"id":10,"name":"light2","state":"A","date":"2021-07-31T10:29:20.054399Z","road":5},{"id":11,"name":"light3","state":"A","date":"2021-07-31T10:29:29.220116Z","road":6},{"id":12,"name":"light4","state":"A","date":"2021-07-31T10:29:52.126471Z","road":7},{"id":13,"name":"light5","state":"A","date":"2021-07-31T10:31:56.032915Z","road":8},{"id":14,"name":"light6","state":"B","date":"2021-07-31T10:32:07.350472Z","road":9},{"id":15,"name":"light7","state":"B","date":"2021-07-31T10:32:18.091789Z","road":10}]

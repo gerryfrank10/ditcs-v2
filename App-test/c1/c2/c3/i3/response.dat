@@ -1,0 +1,12 @@
+HTTP/1.1 406 Not Acceptable
+Date: Sun, 01 Aug 2021 14:22:37 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept
+Allow: POST, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 57
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+{"detail":"Could not satisfy the request Accept header."}P

@@ -1,0 +1,12 @@
+HTTP/1.1 404 Not Found
+Date: Sun, 01 Aug 2021 14:32:45 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 23
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+{"detail":"Not found."}

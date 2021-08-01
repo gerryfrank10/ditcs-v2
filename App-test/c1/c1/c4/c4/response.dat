@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:24:19 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 129
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+{"id":6,"time":"2021-07-24T15:37:25.894302Z","count":45,"status":"mp","image":null,"date":"2021-07-24T15:37:25.894435Z","road":4}

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 15:09:01 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: DENY
+Vary: Cookie
+Content-Length: 3835
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Set-Cookie: messages=W1siX19qc29uX21lc3NhZ2UiLDAsMjAsIkludmFsaWQgdXNlcm5hbWUgb3IgcGFzc3dvcmQiXV0:1mAD5J:PjDLfQsdxEKXlxVvolJh9Ig12uyQNuJty3DzTGBtgIw; HttpOnly; Path=/; SameSite=Lax
+
+[...truncated...]

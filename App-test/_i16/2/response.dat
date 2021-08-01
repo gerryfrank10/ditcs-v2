@@ -1,0 +1,8 @@
+HTTP/1.1 301 Moved Permanently
+Date: Sun, 01 Aug 2021 14:14:31 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: text/html; charset=utf-8
+Location: /api/light/sfi9876/
+Content-Length: 0
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin

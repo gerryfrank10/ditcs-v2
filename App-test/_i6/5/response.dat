@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:23:57 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 1568
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+[{"id":5,"time":"2021-07-24T15:37:17.457039Z","count":12,"status":"mp","image":null,"date":"2021-07-24T15:37:17.457123Z","road":4},{"id":6,"time":"2021-07-24T15:37:25.894302Z","count":45,"status":"mp","image":null,"date":"2021-07-24T15:37:25.894435Z","road":4},{"id":7,"time":"2021-07-24T15:37:34.213190Z","count":23,"status":"mp","image":null,"date":"2021-07-24T15:37:34.213271Z","road":4},{"id":8,"time":"2021-07-24T15:37:59.440860Z","count":56,"status":"mp","image":null,"date":"2021-07-24T15:37:59.440946Z","road":4},{"id":9,"time":"2021-07-24T18:31:49.551083Z","count":75,"status":"mp","image":null,"date":"2021-07-24T18:31:49.551169Z","road":5},{"id":10,"time":"2021-07-24T18:51:22.285528Z","count":50,"status":"mp","image":null,"date":"2021-07-24T18:51:22.285606Z","road":5},{"id":11,"time":"2021-07-24T18:55:28.605428Z","count":34,"status":"mp","image":null,"date":"2021-07-24T18:55:28.605561Z","road":5},{"id":12,"time":"2021-07-24T18:55:49.430393Z","count":50,"status":"mp","image":null,"date":"2021-07-24T18:55:49.430517Z","road":5},{"id":13,"time":"2021-07-24T18:56:47.200152Z","count":20,"status":"mp","image":null,"date":"2021-07-24T18:56:47.200232Z","road":5},{"id":14,"time":"2021-07-24T18:58:25.471015Z","count":37,"status":"mp","image":null,"date":"2021-07-24T18:58:25.471111Z","road":6},{"id":15,"time":"2021-07-24T18:58:37.185188Z","count":47,"status":"mp","image":null,"date":"2021-07-24T18:58:37.185265Z","road":6},{"id":16,"time":"2021-07-24T18:59:28.770545Z","count":14,"status":"mp","image":null,"date":"2021-07-24T18:59:28.770710Z","road":6}]ÖZa

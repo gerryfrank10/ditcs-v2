@@ -1,0 +1,13 @@
+HTTP/1.1 302 Found
+Date: Sun, 01 Aug 2021 15:05:19 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: text/html; charset=utf-8
+Location: /admin/login/?next=/admin/
+Expires: Sun, 01 Aug 2021 15:05:19 GMT
+Cache-Control: max-age=0, no-cache, no-store, must-revalidate, private
+X-Frame-Options: DENY
+Content-Length: 0
+Vary: Cookie
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+

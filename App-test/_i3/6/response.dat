@@ -1,0 +1,772 @@
+HTTP/1.1 500 Internal Server Error
+Date: Sun, 01 Aug 2021 14:13:40 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: text/html
+X-Frame-Options: DENY
+Content-Length: 84770
+Vary: Cookie
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>TemplateDoesNotExist
+          at /forgot-password/</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background-color:#fff; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.frame { padding-bottom:1em; color:#4f4f4f; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; padding-left: 2px; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#464646; background-color:#dfdfdf; padding: 3px 2px; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 10px 20px; }
+    #template-not-exist .postmortem-section { margin-bottom: 3px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em; font-weight:normal; }
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+    .append-bottom { margin-bottom: 10px; }
+    .fname { user-select: all; }
+  </style>
+  
+  <script>
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(document.querySelectorAll('table.vars'));
+      hideAll(document.querySelectorAll('ol.pre-context'));
+      hideAll(document.querySelectorAll('ol.post-context'));
+      hideAll(document.querySelectorAll('div.pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.textContent = s.textContent == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.textContent = link.textContent.trim() == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>TemplateDoesNotExist
+       at /forgot-password/</h1>
+  <pre class="exception_value">forgot-password.html</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://127.0.0.1:8000/forgot-password/</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>3.2.5</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>TemplateDoesNotExist</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>forgot-password.html</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td><span class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/template/loader.py</span>, line 19, in get_template</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/home/kento/Project/Ditcs-v2/venv/bin/python</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>3.9.2</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#x27;/home/kento/Project/Filly/ditcs-v2&#x27;,
+ &#x27;/usr/lib/python39.zip&#x27;,
+ &#x27;/usr/lib/python3.9&#x27;,
+ &#x27;/usr/lib/python3.9/lib-dynload&#x27;,
+ &#x27;/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages&#x27;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Sun, 01 Aug 2021 14:13:40 +0000</td>
+    </tr>
+  </table>
+</div>
+
+
+<div id="template-not-exist">
+    <h2>Template-loader postmortem</h2>
+    
+        <p class="append-bottom">Django tried loading these templates, in this order:</p>
+        
+            <p class="postmortem-section">Using engine <code>django</code>:</p>
+            <ul>
+                
+                    
+                        <li><code>django.template.loaders.app_directories.Loader</code>: /home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/contrib/admin/templates/forgot-password.html (Source does not exist)</li>
+                    
+                        <li><code>django.template.loaders.app_directories.Loader</code>: /home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/contrib/auth/templates/forgot-password.html (Source does not exist)</li>
+                    
+                        <li><code>django.template.loaders.app_directories.Loader</code>: /home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/rest_framework/templates/forgot-password.html (Source does not exist)</li>
+                    
+                        <li><code>django.template.loaders.app_directories.Loader</code>: /home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django_extensions/templates/forgot-password.html (Source does not exist)</li>
+                    
+                        <li><code>django.template.loaders.app_directories.Loader</code>: /home/kento/Project/Filly/ditcs-v2/traffic/templates/forgot-password.html (Source does not exist)</li>
+                    
+                
+            </ul>
+        
+    
+</div>
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/core/handlers/exception.py</code>, line 47, in inner
+          
+
+          
+            <div class="context" id="c140656424303040">
+              
+                <ol start="40" class="pre-context" id="pre140656424303040">
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>            return response</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>        return inner</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>        @wraps(get_response)</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>        def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="47" class="context-line">
+                <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='48' class="post-context" id="post140656424303040">
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>            except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>            return response</pre></li>
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre>        return inner</pre></li>
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424303040', 'post140656424303040')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424303040')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424303040">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>TemplateDoesNotExist(&#x27;forgot-password.html&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fed38ee0820&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/forgot-password/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/core/handlers/base.py</code>, line 181, in _get_response
+          
+
+          
+            <div class="context" id="c140656424304256">
+              
+                <ol start="174" class="pre-context" id="pre140656424304256">
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>        if response is None:</pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>            if asyncio.iscoroutinefunction(wrapped_callback):</pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
+                
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="181" class="context-line">
+                <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='182' class="post-context" id="post140656424304256">
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>            except Exception as e:</pre></li>
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>                if response is None:</pre></li>
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>                    raise</pre></li>
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424304256', 'post140656424304256')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424304256')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424304256">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function forgot_password at 0x7fed23908940&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7fed38ee0ac0&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/forgot-password/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fed38ee0820&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function forgot_password at 0x7fed23908940&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">/home/kento/Project/Filly/ditcs-v2/traffic/views.py</code>, line 217, in forgot_password
+          
+
+          
+            <div class="context" id="c140656424302336">
+              
+                <ol start="210" class="pre-context" id="pre140656424302336">
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>def logoutPage(request):</pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    logout(request)</pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    return redirect(&#x27;login&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>def forgot_password(request):</pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    </pre></li>
+                
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    context = {}</pre></li>
+                
+                </ol>
+              
+              <ol start="217" class="context-line">
+                <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    return render(request, &#x27;forgot-password.html&#x27;, context)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='218' class="post-context" id="post140656424302336">
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>def register(request):</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    form = CreatePersonForm()</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>    if request.method == &#x27;POST&#x27;:</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>        form = CreatePersonForm(request.POST)</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302336', 'post140656424302336')"><pre>        if form.is_valid():</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424302336')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424302336">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>context</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/forgot-password/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/shortcuts.py</code>, line 19, in render
+          
+
+          
+            <div class="context" id="c140656424301760">
+              
+                <ol start="12" class="pre-context" id="pre140656424301760">
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>def render(request, template_name, context=None, content_type=None, status=None, using=None):</pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    Return a HttpResponse whose content is filled with the result of calling</pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    django.template.loader.render_to_string() with the passed arguments.</pre></li>
+                
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                </ol>
+              
+              <ol start="19" class="context-line">
+                <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    content = loader.render_to_string(template_name, context, request, using=using)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='20' class="post-context" id="post140656424301760">
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    return HttpResponse(content, content_type, status)</pre></li>
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>def redirect(to, *args, permanent=False, **kwargs):</pre></li>
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    &quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre140656424301760', 'post140656424301760')"><pre>    Return an HttpResponseRedirect to the appropriate URL for the arguments</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424301760')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424301760">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>content_type</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>context</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/forgot-password/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>template_name</td>
+                    <td class="code"><pre>&#x27;forgot-password.html&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>using</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/template/loader.py</code>, line 61, in render_to_string
+          
+
+          
+            <div class="context" id="c140656424300800">
+              
+                <ol start="54" class="pre-context" id="pre140656424300800">
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    Load a template and render it with a context. Return a string.</pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    template_name may be a string or a list of strings.</pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    if isinstance(template_name, (list, tuple)):</pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>        template = select_template(template_name, using=using)</pre></li>
+                
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    else:</pre></li>
+                
+                </ol>
+              
+              <ol start="61" class="context-line">
+                <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>        template = get_template(template_name, using=using)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='62' class="post-context" id="post140656424300800">
+                  
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    return template.render(context, request)</pre></li>
+                  
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>def _engine_list(using=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140656424300800', 'post140656424300800')"><pre>    return engines.all() if using is None else [engines[using]]</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424300800')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424300800">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>context</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/forgot-password/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>template_name</td>
+                    <td class="code"><pre>&#x27;forgot-password.html&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>using</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/template/loader.py</code>, line 19, in get_template
+          
+
+          
+            <div class="context" id="c140656424302144">
+              
+                <ol start="12" class="pre-context" id="pre140656424302144">
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>    engines = _engine_list(using)</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>    for engine in engines:</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>        try:</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>            return engine.get_template(template_name)</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>        except TemplateDoesNotExist as e:</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>            chain.append(e)</pre></li>
+                
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre></pre></li>
+                
+                </ol>
+              
+              <ol start="19" class="context-line">
+                <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>    raise TemplateDoesNotExist(template_name, chain=chain)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='20' class="post-context" id="post140656424302144">
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>def select_template(template_name_list, using=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>    &quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre>    Load and return a template for one of the given names.</pre></li>
+                  
+                  <li onclick="toggle('pre140656424302144', 'post140656424302144')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140656424302144')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140656424302144">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>chain</td>
+                    <td class="code"><pre>[TemplateDoesNotExist(&#x27;forgot-password.html&#x27;)]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>engine</td>
+                    <td class="code"><pre>&lt;django.template.backends.django.DjangoTemplates object at 0x7fed388f0c70&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>engines</td>
+                    <td class="code"><pre>[&lt;django.template.backends.django.DjangoTemplates object at 0x7fed388f0c70&gt;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>template_name</td>
+                    <td class="code"><pre>&#x27;forgot-password.html&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>using</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  <form action="https://dpaste.com/" name="pasteform" id="pasteform" method="post"

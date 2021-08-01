@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:16:36 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 139
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+{"id":8,"name":"Road E","distance":100.0,"direction":"R","traffic_queue":10,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":2}

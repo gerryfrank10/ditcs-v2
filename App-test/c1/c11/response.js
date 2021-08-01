@@ -1,0 +1,1 @@
+var res = {'data':'HTTP/1.1 302 Found\x0aDate: Sun, 01 Aug 2021 14:13:40 GMT\x0aServer: WSGIServer/0.2 CPython/3.9.2\x0aContent-Type: text/html; charset=utf-8\x0aLocation: /login/?next=/road-export-excel/\x0aX-Frame-Options: DENY\x0aContent-Length: 0\x0aVary: Cookie\x0aX-Content-Type-Options: nosniff\x0aReferrer-Policy: same-origin\x0a\x0a'}

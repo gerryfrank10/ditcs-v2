@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 14:14:31 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 981
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
+[{"id":4,"name":"Road A","distance":23.0,"direction":"R","traffic_queue":23,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":1},{"id":5,"name":"Road B","distance":123.0,"direction":"L","traffic_queue":34,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":1},{"id":6,"name":"Road C","distance":48.0,"direction":"U","traffic_queue":43,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":1},{"id":7,"name":"Road D","distance":100.0,"direction":"D","traffic_queue":12,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":1},{"id":8,"name":"Road E","distance":100.0,"direction":"R","traffic_queue":10,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":2},{"id":9,"name":"Road F","distance":100.0,"direction":"D","traffic_queue":10,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":2},{"id":10,"name":"Road G","distance":12.0,"direction":"L","traffic_queue":null,"status":"A","date":"2021-07-25T17:14:07.189743Z","junction":2}]

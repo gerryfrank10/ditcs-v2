@@ -1,0 +1,4 @@
+var child = [
+  { 'dupe': false, 'type': 4, 'name': 'admin', 'dir': 'c0', 'linked': 1, 'url': 'http://127.0.0.1:8000/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/contrib/admin/', 'fetched': true, 'code': 404, 'len': 5367, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': '[none]', 'missing': true, 'csens': false, 'child_cnt': 2, 'issue_cnt': [ 0, 0, 0, 2, 0 ], 'sig': 0x20f05fc5 },
+  { 'dupe': true, 'type': 4, 'name': 'auth', 'dir': 'c1', 'linked': 1, 'url': 'http://127.0.0.1:8000/home/kento/Project/Ditcs-v2/venv/lib/python3.9/site-packages/django/contrib/auth/', 'fetched': true, 'code': 404, 'len': 5364, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': '[none]', 'missing': true, 'csens': false, 'child_cnt': 0, 'issue_cnt': [ 0, 0, 0, 0, 0 ], 'sig': 0x20f05fc5 }
+];

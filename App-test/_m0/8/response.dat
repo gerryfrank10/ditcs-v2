@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Aug 2021 15:10:25 GMT
+Server: WSGIServer/0.2 CPython/3.9.2
+Content-Type: application/javascript
+Content-Length: 234
+Content-Disposition: inline; filename="bs-init.js"
+Last-Modified: Thu, 29 Jul 2021 11:17:07 GMT
+
+document.addEventListener('DOMContentLoaded', function() {
+
+	var charts = document.querySelectorAll('[data-bss-chart]');
+
+	for (var chart of charts) {
+		chart.chart = new Chart(chart, JSON.parse(chart.dataset.bssChart));
+	}
+}, false);

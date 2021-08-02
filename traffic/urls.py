@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/refresh/', TokenRefreshView, name='token_refresh'),
     path('road-export-csv/', views.road_export_csv, name='road_export_csv'),
     path('road-export-excel/', views.road_export_excel, name='road_export_excel'),
+    path('genPdf/', views.render_pdf_view, name='render_pdf_view'),
 ]

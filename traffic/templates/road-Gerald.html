@@ -22,7 +22,8 @@
 <td>{{ light.road.name }}</td>
 <td>{{ light.state }}</td>
 <td>
-  <button class="btn btn-secondary"><a href="{% url 'updateLight' light.id %}">Update</button>
+  <a href="{% url 'updateLight' light.id %}" class="btn btn-primary">Update</a>
+
 </td>
 </tr>
 {% endfor %}

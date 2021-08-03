@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from rest_framework import viewsets
 import io, base64
 from rest_framework import viewsets
-from .models import  Traffic, Road, Light,Junction
+from .models import  Traffic, Road, Light,Junction,People
+from django.contrib.auth.models import User
 from .serializers import TrafficSerializer, RoadSerializer, LightSerializer
 from .forms import CreatePersonForm, LightsForm
 import requests
@@ -169,7 +170,14 @@ def road_export_excel(request):
 
 @login_required(login_url="login")
 def profile(request):
+    if request.method == 'POST':    
 
+        userId=int(request.POST['userId'])
+        user = get_object_or_404(User, pk=userId)
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.save()
+        return redirect('profile')
     context = {}
     return render(request, 'profile.html',context)
 

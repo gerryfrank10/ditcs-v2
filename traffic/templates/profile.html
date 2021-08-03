@@ -22,7 +22,9 @@
                             <p class="text-primary m-0 fw-bold">User Settings</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="" method="POST">
+                                {% csrf_token%}
+                                <input class="form-control" type="hidden" id="userId" value="{{ user.id }}" name="userId">
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" placeholder="{{ user.username }}" name="username" disabled></div>
@@ -33,10 +35,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" id="first_name" placeholder="{{ user.first_name }}" name="first_name"></div>
+                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" id="first_name" value="{{ user.first_name }}" name="first_name"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" placeholder="{{ user.last_name }}" name="last_name"></div>
+                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" value="{{ user.last_name }}" name="last_name"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>

@@ -19,9 +19,13 @@ import tempfile
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+import datetime
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
 
+today = datetime.date.today()
+week = datetime.datetime.now() + datetime.timedelta(days=7)
+month = datetime.datetime.today() + datetime.timedelta(days=31)
 
 # Create your views here.
 @login_required(login_url="login")
@@ -166,12 +170,17 @@ def profile(request):
     context = {}
     return render(request, 'profile.html',context)
 
+
 class ChartView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['data'] = Road.objects.all()
+        context['total_traffic'] = len(Traffic.objects.all())
+        context['today_traffic'] = Traffic.objects.filter(date__gt = today)
+        context['week_traffic'] = Traffic.objects.filter(date__gt = week)
+        context['month_traffic'] = Traffic.objects.filter(date__gt =month)
         return context
 
 

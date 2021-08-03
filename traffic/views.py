@@ -20,12 +20,11 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 import datetime
+import xlwt
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
 
-today = datetime.date.today()
-week = datetime.datetime.now() + datetime.timedelta(days=7)
-month = datetime.datetime.today() + datetime.timedelta(days=31)
+
 
 # Create your views here.
 @login_required(login_url="login")
@@ -146,14 +145,14 @@ def road_export_excel(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    colums = ['Name','state','Date']
+    colums = ['Road','status','count','Date']
 
     for col_num in range(len(colums)):
         ws.write(row_num, col_num, colums[col_num], font_style)
     
     font_style = xlwt.XFStyle()
-
-    rows = Road.objects.all().values_list('name', 'state', 'date')
+    traffics = Traffic.objects.all()
+    rows = Traffic.objects.all().values_list('road_id', 'status','count', 'date')
 
     for row in rows:
         row_num += 1
@@ -174,13 +173,17 @@ def profile(request):
 class ChartView(TemplateView):
     template_name = 'index.html'
 
+
     def get_context_data(self, **kwargs):
+        today = datetime.date.today()
+        week = datetime.datetime.now() + datetime.timedelta(days=7)
+        month = datetime.datetime.today() + datetime.timedelta(days=31)
         context = super().get_context_data(**kwargs)
         context['data'] = Road.objects.all()
         context['total_traffic'] = len(Traffic.objects.all())
-        context['today_traffic'] = Traffic.objects.filter(date__gt = today)
-        context['week_traffic'] = Traffic.objects.filter(date__gt = week)
-        context['month_traffic'] = Traffic.objects.filter(date__gt =month)
+        context['today_traffic'] = len(Traffic.objects.filter(date__gt = today))
+        context['week_traffic'] = len(Traffic.objects.filter(date__range = [today,week]))
+        context['month_traffic'] = len(Traffic.objects.filter(date__range = [today, month]))
         return context
 
 

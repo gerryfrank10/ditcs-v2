@@ -124,12 +124,12 @@ def road_export_csv(request):
         str(datetime.datetime.now())+'.csv'
 
     writer = csv.writer(response)
-    writer.writerow(['Name','state','Date'])
+    writer.writerow(['Road Id','status','Date'])
 
-    roads = Road.objects.all()
+    traffics = Traffic.objects.all()
 
-    for road in roads:
-        writer.writerow([road.name,road.state, road.date])
+    for road in traffics:
+        writer.writerow([road.id,road.status, road.date])
     
     return response
 

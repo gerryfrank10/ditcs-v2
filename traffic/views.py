@@ -58,38 +58,42 @@ def camera(request):
     return render(request, 'camera.html',context)
 
 
-@login_required(login_url="login")
-def roads(request):
-    result = []
-    my_road = []
-    if request.method == 'POST':    
-        state= request.POST
-        if 'road_a' in state:
-            result.append(request.POST['road_a'])
-            # print(f'{result} ')
+# @login_required(login_url="login")
+# def roads(request):
+#     result = []
+#     my_road = []
+#     if request.method == 'POST':    
+#         state= request.POST
+#         if 'road_a' in state:
+#             result.append(request.POST['road_a'])
+#             # print(f'{result} ')
 
-        else:
-             result.append('off')
-        rId=int(request.POST['road_id'])
-        rd = Road.objects.get(pk=rId)
+#         else:
+#              result.append('off')
+#         rId=int(request.POST['road_id'])
+#         rd = Road.objects.get(pk=rId)
 
-        road_rd = Road.objects.filter(junction_id = rd.junction.id)
-        road_id = [r.id for r in road_rd if r.state == 'on']
-        road_state = [r.state for r in road_rd if r.state == 'on']
-        print(f'{type(road_id)} {road_state}')
+#         # road_rd = Road.objects.filter(junction_id = rd.junction.id)
+#         # road_id = [r.id for r in road_rd if r.state == 'on']
+#         # road_state = [r.state for r in road_rd if r.state == 'on']
+#         # print(f'{type(road_id)} {road_state}')
 
-        # for my_r in road_id:
-        #     ser.write(str(my_r).encode())
-        # print(my_road[0])
-        # ser.write(str(my_road[0]).encode())
-        rd.state = result[0]
-        rd.save()
-    junctions = Junction.objects.all()
-    # x = {'name': rd.name, 'state': rd.state}
-    # requests.post('http://127.0.0.1:8000/api', data=x)
-    # print(x)
-    context = {'data':junctions}
-    return render(request, 'roads.html',context)
+#         # for my_r in road_id:
+#         #     ser.write(str(my_r).encode())
+#         # print(my_road[0])
+#         # ser.write(str(my_road[0]).encode())
+#         rd.state = result[0]
+#         rd.save()
+#     lights = Light.objects.all()
+#     junctions = Junction.objects.all()
+#     # x = {'name': rd.name, 'state': rd.state}
+#     # requests.post('http://127.0.0.1:8000/api', data=x)
+#     # print(x)
+#     context = {
+#             'data':junctions,
+#             'lights':lights
+#             }
+#     return render(request, 'roads.html',context)
 
 @login_required(login_url="login")
 def roadGerald(request):

@@ -1,27 +1,34 @@
 {% extends "base_generic.html"%}
 {% block content %}
+
+<div class="container">
+  <a href="{% url 'road_export_csv' %}" class="btn btn-primary">Export Csv</a>
+  <a href="{% url 'road_export_excel' %}" class="btn btn-primary">Export Excel</a>
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Road</th>
-      <th scope="col">State</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for light in lights %}
-    <tr>
-      <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ light.name }}</td>
-      <td>{{ light.road.name }}</td>
-      <td>{{ light.state }}</td>
-      <td>
-        <button class="btn btn-secondary"><a href="{% url 'updateLight' light.id %}">Update</button>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Name</th>
+<th scope="col">Road</th>
+<th scope="col">State</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+{% for light in lights %}
+<tr>
+<th scope="row">{{ forloop.counter }}</th>
+<td>{{ light.name }}</td>
+<td>{{ light.road.name }}</td>
+<td>{{ light.state }}</td>
+<td>
+  <button class="btn btn-secondary"><a href="{% url 'updateLight' light.id %}">Update</button>
+</td>
+</tr>
+{% endfor %}
+</tbody>
 </table>
+
+</div>
+
 {% endblock %}

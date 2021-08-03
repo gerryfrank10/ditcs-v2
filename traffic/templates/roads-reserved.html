@@ -1,0 +1,126 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<style>
+    .onoffswitch {
+    left: 50%;
+    transform: translate( -50%);
+
+        position: relative; width: 90px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    .onoffswitch-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 2px solid #999999; border-radius: 20px;
+    }
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+    }
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        box-sizing: border-box;
+    }
+    .onoffswitch-inner:before {
+        content: "ON";
+        padding-left: 10px;
+        background-color: #34A7C1; color: #FFFFFF;
+    }
+    .onoffswitch-inner:after {
+        content: "OFF";
+        padding-right: 10px;
+        background-color: #EEEEEE; color: #999999;
+        text-align: right;
+    }
+    .onoffswitch-switch {
+
+        display: block; 
+        width: 18px;
+        height: 18px;
+        margin: 6px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0;
+        right: 56px;
+        border: 2px solid #999999; border-radius: 20px;
+        transition: all 0.3s ease-in 0s; 
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
+    }
+</style>
+<div class="container-fluid">
+    <div>
+        <a href="{% url 'road_export_csv' %}" class="btn btn-primary">Export Csv</a>
+        <a href="{% url 'road_export_excel' %}" class="btn btn-primary">Export Excel</a>
+        {% for junction in data %}
+        <h3 class="text-dark mb-4">{{ junction.name }}</h3>
+        <div class="row mb-3">
+            {% for road in junction.road_set.all %}
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">{{ road.name }} {{road.id}}</p>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token%}
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="traffic_queue{{road.id}}"><strong>Traffic Queue</strong></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mb-3"><label class="form-label" for="email"><strong>{{road.traffic_queue}}</strong></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="onoffswitch">
+                                    <input type="hidden" name="road_id" value="{{ road.id }}">
+                                    {% ifequal road.state 'on' %}
+                                    <input type="checkbox" name="road_a" class="onoffswitch-checkbox" id="road{{ road.id }}" tabindex="0" checked>     
+                                    {% else %}
+                                    <input type="checkbox" name="road_a" class="onoffswitch-checkbox" id="road{{ road.id }}" tabindex="0">
+                                    {% endifequal %}
+                                    <label class="onoffswitch-label" for="road{{ road.id }}">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                    <br>
+                                </div>
+                            
+                               
+                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
+                            </form>
+
+
+                            <form>
+                                {{form}}
+                            </form>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+       
+       
+        </div>
+        {% endfor %}
+    </div>   
+</div>
+
+{% endblock %}

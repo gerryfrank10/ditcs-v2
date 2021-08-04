@@ -22,6 +22,7 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 import datetime
 import xlwt
+import serial
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
 
@@ -115,8 +116,10 @@ def updateLight(request, pk):
     if request.method == 'POST':
         form = LightsForm(request.POST, instance=light)
         if form.is_valid():
-            print(f"{light},{request.POST['state']},")
+            state = request.POST['state']
+            print(f"{light},{state},")
             form.save()
+            # ser.write(str(f'{str(light)},{state},').encode())
             return redirect('roadGerald')
     context = {'light':light, 'form':form}
     return render(request, 'update-Road.html', context)
@@ -241,13 +244,20 @@ def forgot_password(request):
     return render(request, 'forgot-password.html', context)
 
 def register(request):
-    form = CreatePersonForm()
     if request.method == 'POST':
-        form = CreatePersonForm(request.POST)
-        if form.is_valid():
-            form.save()
-    context = {'form': form}
-    return render(request, 'accounts/register.html', context)
+        firstname = request.POST['first_name']
+        lastname = request.POST['last_name']
+        username = request.POST['username']
+        password = request.POST['password']
+        password_repeat = request.POST['password_repeat']
+
+        if(password == password_repeat ):
+            User.objects.create_user(first_name=firstname,last_name=lastname,username=username, password=password)
+            return redirect('index')
+        else:
+            return render(request, 'accounts/register.html')
+
+    return render(request, 'accounts/register.html')
 
 def render_pdf_view(request):
     template_path = 'pdf1.html'

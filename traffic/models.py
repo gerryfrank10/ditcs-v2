@@ -57,8 +57,8 @@ class Road(models.Model):
 
 class Light(models.Model):
     state_choice = (
-        ('A', 'ON'),
-        ('B', 'OFF'),
+        ('on', 'ON'),
+        ('off', 'OFF'),
     )
 
     lights  = (
@@ -69,10 +69,11 @@ class Light(models.Model):
         ('light5', 'light5'),
         ('light6', 'light6'),
         ('light7', 'light7'),
+        ('Auto', 'Auto'),
     )
 
     name = models.CharField(max_length=20,choices=lights, help_text="The light on the road")
-    state = models.CharField(max_length=2, choices=state_choice)
+    state = models.CharField(max_length=3, choices=state_choice)
     date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     road = models.ForeignKey(Road, blank=True, null=True, on_delete=models.SET_NULL)
     def __str__(self):

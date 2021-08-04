@@ -24,7 +24,7 @@ import datetime
 import xlwt
 import serial
 
-# ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 
 
@@ -119,7 +119,7 @@ def updateLight(request, pk):
             state = request.POST['state']
             print(f"{light},{state},")
             form.save()
-            # ser.write(str(f'{str(light)},{state},').encode())
+            ser.write(str(f'{str(light)},{state},').encode())
             return redirect('roadGerald')
     context = {'light':light, 'form':form}
     return render(request, 'update-Road.html', context)

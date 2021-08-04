@@ -126,7 +126,7 @@
                 {% for dat in data %} 
                     {% for dats in dat.traffic_set.all %}
 
-                '{{dats.time|time:"H:i"}}',
+                    '{{dats.time|date:"j-M"}}',
                 {% endfor %}
                 {% endfor %}
 
